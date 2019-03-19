@@ -8,6 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Architecture" />
+            <option value="$PROJECT_DIR$/CoreLibrary" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

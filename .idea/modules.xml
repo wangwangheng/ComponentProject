@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Architecture/Architecture.iml" filepath="$PROJECT_DIR$/Architecture/Architecture.iml" />
       <module fileurl="file://$PROJECT_DIR$/ComponentProject.iml" filepath="$PROJECT_DIR$/ComponentProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoreLibrary/CoreLibrary.iml" filepath="$PROJECT_DIR$/CoreLibrary/CoreLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
