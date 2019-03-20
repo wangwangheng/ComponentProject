@@ -5,7 +5,7 @@
 通过`gradle.properties`中配置的`MODE_MODULE = true`的值来控制模块的`build.gradle的配置，例子:
 
 ```
-if(MODE_MODULE.toBoolean()) {
+if(IS_LIBRARY.toBoolean()) {
     apply plugin: 'com.android.library'
 }else{
     apply plugin: 'com.android.application'
@@ -38,7 +38,7 @@ android {
 
     sourceSets {
         main {
-            if(MODE_MODULE){
+            if(IS_LIBRARY){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java {
                     setIncludes(new HashSet(['src/main/java/debug/**']))

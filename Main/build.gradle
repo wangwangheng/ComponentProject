@@ -1,4 +1,4 @@
-if(MODE_MODULE.toBoolean()){
+if(IS_LIBRARY.toBoolean()){
     apply plugin: 'com.android.library'
 }else{
     apply plugin: 'com.android.application'
@@ -12,7 +12,7 @@ android {
 
     sourceSets {
         main {
-            if(MODE_MODULE){
+            if(IS_LIBRARY){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java {
                     setIncludes(new HashSet(['src/main/java/debug/**']))
