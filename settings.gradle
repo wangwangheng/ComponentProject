@@ -1,1 +1,1 @@
-include ':app', ':Architecture', ':CoreLibrary'
+include ':app', ':Architecture', ':CoreLibrary', ':Main'

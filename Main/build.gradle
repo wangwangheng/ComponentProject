@@ -1,31 +1,43 @@
-apply plugin: 'com.android.application'
+if(MODE_MODULE.toBoolean()){
+    apply plugin: 'com.android.library'
+}else{
+    apply plugin: 'com.android.application'
+}
 
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
+
+    sourceSets {
+        main {
+            if(MODE_MODULE){
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                java {
+                    setIncludes(new HashSet(['src/main/java/debug/**']))
+                }
+            }else{
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
     defaultConfig {
-        applicationId "com.xinye.component"
         minSdkVersion MIN_SDK_VERSION.toInteger()
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
-        versionCode APP_VERSION_CODE.toInteger()
-        versionName APP_VERSION_NAME
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 1
+        versionName "1.0"
     }
-    buildTypes {
 
-        debug {
-            minifyEnabled false
-        }
+    buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
 
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

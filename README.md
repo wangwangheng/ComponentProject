@@ -52,3 +52,23 @@ android {
 ```
 
 其中*debug*和*module*都是自己创建的文件夹
+
+## 4.依赖库重复问题怎么解决？
+
+如果依赖库重复，则在编译时就会报错，解决办法就是找出那个多出来的库，并将多出来的库给排除掉，具体可以**根据组件名排除或者根据包名排除**
+
+```
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile("com.jude:easyrecyclerview:$rootProject.easyRecyclerVersion") {
+        exclude module: 'support-v4'//根据组件名排除
+        exclude group: 'android.support.v4'//根据包名排除
+    }
+}
+```
+
+如果是第三方库依赖，则建议都添加到CoreLibrary
+
+
+
+

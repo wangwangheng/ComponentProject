@@ -1,5 +1,6 @@
 package com.xinye.core
 
+import android.annotation.SuppressLint
 import android.content.Context
 
 /**
@@ -9,6 +10,7 @@ import android.content.Context
  */
 class App private constructor(){
     companion object {
+        @SuppressLint("StaticFieldLeak")
         private val INSTANCE = App()
         fun getInstance(): App {
             return INSTANCE
@@ -18,7 +20,7 @@ class App private constructor(){
     private lateinit var mContext: Context
 
     fun init(context: Context){
-        mContext = context
+        mContext = context.applicationContext
     }
 
     fun getContext(): Context {
