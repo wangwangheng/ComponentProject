@@ -14,7 +14,7 @@ android {
             if(MODE_MODULE){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java {
-                    exclude 'src/main/java/debug/**'
+                    setIncludes(new HashSet(['src/main/java/debug/**']))
                 }
             }else{
                 manifest.srcFile 'src/main/AndroidManifest.xml'
