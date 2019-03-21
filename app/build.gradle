@@ -12,7 +12,7 @@ android {
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         versionCode APP_VERSION_CODE.toInteger()
         versionName APP_VERSION_NAME
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
 

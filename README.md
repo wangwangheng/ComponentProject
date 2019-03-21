@@ -70,6 +70,12 @@ dependencies {
 
 如果是第三方库依赖，则建议都添加到CoreLibrary
 
+## 5.怎么解决资源命名冲突？
+
+* 公共的资源添加到`CoreLibrary`或者新建一个资源`Module`
+* 具体模块的资源前缀增加Module名字
+* gradle虽然可以通过`resourcePrefix "girls_"`指定资源前缀，但是无法作用于图片，所以不建议使用
+
 
 
 
