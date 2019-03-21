@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'android-aspectjx'    // 沪江aspectjX
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -34,4 +35,11 @@ dependencies {
     api "com.android.support:support-vector-drawable:$SUPPORT_SDK_VERSION"
     api "com.android.support:recyclerview-v7:$SUPPORT_SDK_VERSION"
     api "com.android.support:cardview-v7:$SUPPORT_SDK_VERSION"
+
+    api "org.aspectj:aspectjrt:$ASPECTJX_VERSION"
+}
+
+aspectjx {
+    //排除所有package路径中包含`android.support`的class文件及库（jar文件）
+    exclude 'android.support'
 }
