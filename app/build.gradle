@@ -14,13 +14,38 @@ android {
         versionName APP_VERSION_NAME
         multiDexEnabled true
     }
+
+    signingConfigs {
+        debug {
+            keyAlias 'release'
+            keyPassword 'release_keystore'
+            storeFile file('../keystore/release_keystore.jks')
+            storePassword 'release_keystore'
+            v2SigningEnabled false
+        }
+        release {
+            keyAlias 'release'
+            keyPassword 'release_keystore'
+            storeFile file('../keystore/release_keystore.jks')
+            storePassword 'release_keystore'
+            v2SigningEnabled false
+        }
+    }
     buildTypes {
 
         debug {
             minifyEnabled false
+            shrinkResources false
+            //Zipalign压缩优化
+            zipAlignEnabled true
+            signingConfig signingConfigs.debug
         }
         release {
             minifyEnabled false
+            shrinkResources false
+            //Zipalign压缩优化
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -29,6 +54,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':Module_CoreLibrary')
+    if(IS_LIBRARY.toBoolean()){
+        implementation project(':Module_Main')
+        implementation project(':Module_Architecture')
+    }else{
+        implementation project(':Module_CoreLibrary')
+    }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
 }

@@ -2,7 +2,7 @@
           package="com.xinye.main">
     <application android:name="debug.MainApplication"
                  android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
