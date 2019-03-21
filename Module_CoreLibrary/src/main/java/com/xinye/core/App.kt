@@ -20,7 +20,7 @@ class App private constructor(){
     private lateinit var mContext: Context
 
     fun init(context: Context){
-        mContext = context.applicationContext
+        mContext = context
     }
 
     fun getContext(): Context {

@@ -8,9 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Architecture" />
-            <option value="$PROJECT_DIR$/CoreLibrary" />
-            <option value="$PROJECT_DIR$/Main" />
+            <option value="$PROJECT_DIR$/Module_Architecture" />
+            <option value="$PROJECT_DIR$/Module_CoreLibrary" />
+            <option value="$PROJECT_DIR$/Module_Main" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

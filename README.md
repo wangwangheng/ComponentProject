@@ -2,10 +2,11 @@
 
 ## 1. 各个模块怎样区分application还是library?
 
-通过`gradle.properties`中配置的`MODE_MODULE = true`的值来控制模块的`build.gradle的配置，例子:
+通过`gradle.properties`中配置的`IS_LIBRARY = true`的值来控制模块的`build.gradle的配置，例子:
 
 ```
-if(IS_LIBRARY.toBoolean()) {
+boolean  isLibrary = IS_LIBRARY.toBoolean()
+if(isLibrary){
     apply plugin: 'com.android.library'
 }else{
     apply plugin: 'com.android.application'
@@ -35,13 +36,13 @@ abstract class BaseApplication: Application() {
 ```
 android {
     compileSdkVersion 28
-
+    
     sourceSets {
         main {
-            if(IS_LIBRARY){
+            if(isLibrary){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java {
-                    setIncludes(new HashSet(['src/main/java/debug/**']))
+                    setIncludes(new Has hSet(['src/main/java/debug/**']))
                 }
             }else{
                 manifest.srcFile 'src/main/AndroidManifest.xml'

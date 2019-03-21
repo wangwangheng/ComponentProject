@@ -1,5 +1,5 @@
-
-if(IS_LIBRARY.toBoolean()) {
+boolean  isLibrary = IS_LIBRARY.toBoolean()
+if(isLibrary){
     apply plugin: 'com.android.library'
 }else{
     apply plugin: 'com.android.application'
@@ -13,7 +13,7 @@ android {
 
     sourceSets {
         main {
-            if(IS_LIBRARY){
+            if(isLibrary){
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
                 java {
                     setIncludes(new HashSet(['src/main/java/debug/**']))
@@ -42,7 +42,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':CoreLibrary')
+    implementation project(':Module_CoreLibrary')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
 
 }
