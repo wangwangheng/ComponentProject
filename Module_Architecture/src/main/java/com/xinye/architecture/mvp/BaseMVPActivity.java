@@ -15,12 +15,19 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
+
+        onCreateBeforeCallSuper(savedInstanceState);
+
         super.onCreate(savedInstanceState);
 
         this.mPresenter = createPresenter();
         getPresenter().init(BaseMVPActivity.this, getUI());
         onCreateExecute(savedInstanceState);
         getPresenter().onUICreate(savedInstanceState);
+    }
+
+    protected void onCreateBeforeCallSuper(Bundle savedInstanceState) {
+
     }
 
     /**
