@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xinye.core.widget.roundrect.RoundRectLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:roundRectRadius="5dp"
+    app:roundRectBackground="@color/color_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/color_text_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+    <TextView
+        android:id="@+id/tvDialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/color_text_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        />
+    <View style="@style/HorizontalLineStyle"/>
+    <TextView
+        android:id="@+id/tvDialogLeftButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/color_orange_primary"
+        android:background="@drawable/dialog_button_bg"
+        android:text="@string/text_confirm"
+        android:singleLine="true"
+        android:clickable="true"
+        />
+</com.xinye.core.widget.roundrect.RoundRectLinearLayout>

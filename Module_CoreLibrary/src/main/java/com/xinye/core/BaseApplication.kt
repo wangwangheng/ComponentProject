@@ -11,6 +11,6 @@ import android.support.multidex.MultiDexApplication
 abstract class BaseApplication: MultiDexApplication() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-        App.getInstance().init(this)
+        App.init(this,BuildConfig.DEBUG)
     }
 }

@@ -7,4 +7,22 @@
     <color name="color_transparent">#00000000</color>
     <color name="color_white">#FFFFFFFF</color>
     <color name="color_black">#FF000000</color>
+    <color name="color_white_pressed">#FFE0E0E0</color>
+
+    <!-- 页面背景主颜色 -->
+    <color name="color_bg_primary">#FFF4F4F4</color>
+    <!-- 线条(横向、纵向主颜色) -->
+    <color name="color_line">#FFD8D8D8</color>
+
+
+    <!-- 输入框Hint文字主颜色 -->
+    <color name="color_text_hint">#FFBDBDBD</color>
+    <!-- 一级级文字颜色 -->
+    <color name="color_text_title">#7F000000</color>
+    <!-- 二级文字颜色 -->
+    <color name="color_text_content">#FFA1A1A1</color>
+
+    <color name="color_orange">#FFF19625</color>
+    <color name="color_orange_pressed">#FFEB871E</color>
+    <color name="color_orange_primary">@color/color_orange</color>
 </resources>

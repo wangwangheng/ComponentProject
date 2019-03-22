@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundRectLayout">
+        <attr name="roundRectRadius" format="dimension"/>
+        <attr name="roundRectBackground" format="color"/>
+    </declare-styleable>
+</resources>

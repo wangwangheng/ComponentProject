@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CoreLibrary</string>
+
+
+    <string name="text_confirm">确定</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_completed">完成</string>
+    <string name="text_loading">正在加载&#8230;</string>
+    <string name="text_no_sdcard">您的设备没有存储卡</string>
+    <string name="text_no_network">您的网络已断开,请检查网络连接</string>
+    <string name="text_not_support_tell">您的设备无法拨打电话</string>
 </resources>

@@ -1,31 +1,40 @@
 package com.xinye.core
 
-import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Context
+import android.content.res.Resources
+import android.support.annotation.StringRes
 
 /**
  * App,所有组件除了Application应该不跟BaseApplication打交道，而是应该通过此单例类获取应用资源
  *
  * @author wangheng
  */
-class App private constructor(){
-    companion object {
-        @SuppressLint("StaticFieldLeak")
-        private val INSTANCE = App()
-        fun getInstance(): App {
-            return INSTANCE
-        }
-    }
+@SuppressWarnings(" StaticFieldLeak")
+object App{
 
-    private lateinit var mContext: Context
+    private lateinit var mContext: Application
+    private var mDebug = true
 
-    fun init(context: Context){
+    fun init(context: Application,debug: Boolean){
         mContext = context
+        mDebug = debug
     }
 
     fun getContext(): Context {
         return mContext
     }
 
+    fun isDebug(): Boolean {
+        return mDebug
+    }
+
+    fun getString(@StringRes id: Int): String {
+        return mContext.getString(id)
+    }
+
+    fun getResources(): Resources {
+        return mContext.resources
+    }
 
 }
