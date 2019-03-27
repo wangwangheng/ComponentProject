@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Module_Architecture/Module_Architecture.iml" filepath="$PROJECT_DIR$/Module_Architecture/Module_Architecture.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module_CoreLibrary/Module_CoreLibrary.iml" filepath="$PROJECT_DIR$/Module_CoreLibrary/Module_CoreLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module_Main/Module_Main.iml" filepath="$PROJECT_DIR$/Module_Main/Module_Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module_ThirdPlatform/Module_ThirdPlatform.iml" filepath="$PROJECT_DIR$/Module_ThirdPlatform/Module_ThirdPlatform.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

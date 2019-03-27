@@ -1,1 +1,1 @@
-include ':app', ':Module_Architecture', ':Module_CoreLibrary', ':Module_Main'
+include ':app', ':Module_Architecture', ':Module_CoreLibrary', ':Module_Main', ':Module_ThirdPlatform'

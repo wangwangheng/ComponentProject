@@ -1,0 +1,45 @@
+boolean isLibrary = IS_LIBRARY.toBoolean()
+if(isLibrary){
+    apply plugin: 'com.android.library'
+}else{
+    apply plugin: 'com.android.application'
+}
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'android-aspectjx'
+android {
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
+
+    sourceSets {
+        main {
+            if(isLibrary){
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                java {
+                    setIncludes(new HashSet(['src/main/java/debug/**']))
+                }
+            }else{
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION.toInteger()
+        targetSdkVersion TARGET_SDK_VERSION.toInteger()
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':Module_CoreLibrary')
+}
