@@ -25,6 +25,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+
+    api project(':lib_annotation')
+    annotationProcessor project(':lib_annotation_processor')
+
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
     api "com.android.support:multidex:$MULTIDEX_VERSION"
 

@@ -11,7 +11,6 @@ import com.xinye.core.BaseApplication
 class AppApplication: BaseApplication() {
     override fun onCreate() {
         super.onCreate()
-
     }
 
     override fun attachBaseContext(base: Context?) {

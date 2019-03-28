@@ -16,6 +16,7 @@ abstract class BaseApplication: MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        AppLifecycleManager.init(this)
     }
 
     override fun onLowMemory() {
@@ -23,6 +24,7 @@ abstract class BaseApplication: MultiDexApplication() {
     }
 
     override fun onTerminate() {
+        AppLifecycleManager.terminate()
         super.onTerminate()
     }
 

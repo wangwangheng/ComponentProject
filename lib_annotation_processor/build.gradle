@@ -1,9 +1,9 @@
-apply plugin: 'java-library'
+apply plugin: 'java'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //这是谷歌提供的一个自动服务注册框架，需要用到
-    implementation 'com.google.auto.service:auto-service:1.0-rc2'
+    implementation 'com.google.auto.service:auto-service:1.0-rc3'
     implementation project(':lib_annotation')
 }
 
