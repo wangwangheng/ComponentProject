@@ -1,0 +1,24 @@
+apply plugin: 'java-library'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:transform-api:2.0.0-deprecated-use-gradle-api'
+    compile 'com.android.tools.build:gradle:3.3.2'
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+//通过maven将插件发布到本地的脚本配置，根据自己的要求来修改
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.version = '1.0.0'
+        pom.artifactId = 'lifecycle'
+        pom.groupId = 'com.xinye.plugin_lifecycle'
+        repository(url: "file:///Users/wangheng/.m2/repository/")
+    }
+}

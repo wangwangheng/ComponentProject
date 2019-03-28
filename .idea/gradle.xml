@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_annotation" />
             <option value="$PROJECT_DIR$/lib_annotation_processor" />
+            <option value="$PROJECT_DIR$/plugin_lifecycle" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

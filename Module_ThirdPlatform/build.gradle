@@ -7,6 +7,21 @@ if(isLibrary){
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'android-aspectjx'
+apply plugin: 'xinye-plugin_lifecycle'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        //自定义插件maven地址，替换成你自己的maven地址
+        maven { url 'file:///Users/wangheng/.m2/repository/' }
+    }
+    dependencies {
+        //通过maven加载自定义插件
+        classpath 'com.xinye.plugin_lifecycle:lifecycle:1.0.0'
+    }
+}
+
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
 
@@ -43,4 +58,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':Module_CoreLibrary')
     annotationProcessor project(':lib_annotation_processor')
+
 }

@@ -1,1 +1,1 @@
-include ':app', ':Module_Architecture', ':Module_CoreLibrary', ':Module_Main', ':Module_ThirdPlatform', ':lib_annotation', ':lib_annotation_processor'
+include ':app', ':Module_Architecture', ':Module_CoreLibrary', ':Module_Main', ':Module_ThirdPlatform', ':lib_annotation', ':lib_annotation_processor', ':plugin_lifecycle'

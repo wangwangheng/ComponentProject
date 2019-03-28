@@ -11,8 +11,6 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.Writer;
 import java.util.*;
 
