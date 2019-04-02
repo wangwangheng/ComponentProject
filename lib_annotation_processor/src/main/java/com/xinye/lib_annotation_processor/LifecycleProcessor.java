@@ -82,11 +82,11 @@ public class LifecycleProcessor extends AbstractProcessor {
             }
         }
 
-        mMessager.printMessage(Diagnostic.Kind.NOTE,"···start generator proxy class");
+        mMessager.printMessage(Diagnostic.Kind.NOTE,"########···start generator proxy class");
         for(Map.Entry<String, LifecycleProxyGenerator> entry : mMap.entrySet()){
             String className = entry.getKey();
             LifecycleProxyGenerator creator = entry.getValue();
-            mMessager.printMessage(Diagnostic.Kind.NOTE,"generator proxy class:" + className);
+            mMessager.printMessage(Diagnostic.Kind.NOTE,"#################generator proxy class:" + className);
 
             //  generate proxy class
             try {

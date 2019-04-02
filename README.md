@@ -77,5 +77,20 @@ dependencies {
 * gradle虽然可以通过`resourcePrefix "girls_"`指定资源前缀，但是无法作用于图片，所以不建议使用
 
 
+## 6.怎么解决第三方库初始化问题?
+
+AnnotationProcessor虽然可以解决，但是在在启动时需要执行比较耗时的操作去遍历所有Dex中的类
+
+gradle插件方式虽然可以解决，但是需要做大量的工作而且必须了解插架开发的方式和ASM代码注入
+
+所以采用比较笨的方式，在各模块AndroidManifest.xml中配置启动类类名，然后在启动时扫描这些配置；需要注意的是这些类不能混淆而且必须放在主Dex中；
+例子:
+
+```
+<application android:name="debug.ThirdPlatformApplication" android:theme="@style/AppTheme">
+    <meta-data android:name="Lifecycle-ThirdPlatform" android:value="com.xinye.module_thirdplatform.MyAppDelegate"/>
+</application>
+```
+
 
 

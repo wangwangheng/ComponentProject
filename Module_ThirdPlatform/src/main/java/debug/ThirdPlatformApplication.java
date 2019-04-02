@@ -6,5 +6,6 @@ public class ThirdPlatformApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 }

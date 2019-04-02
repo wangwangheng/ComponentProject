@@ -1,4 +1,4 @@
-package com.xinye.module_thirdplatform;
+package com.xinye.component;
 
 import android.content.Context;
 import com.xinye.core.IAppLifecycle;
@@ -7,20 +7,23 @@ import com.xinye.lib_annotation.AppLifecycle;
 
 
 @AppLifecycle
-public class MyAppDelegate implements IAppLifecycle {
-    private static final String TAG = "MyAppDelegate";
+public class AppModuleInit implements IAppLifecycle {
     @Override
     public int getPriority() {
-        return NORM_PRIORITY;
+        return MAX_PRIORITY;
     }
 
     @Override
     public void onCreate(Context context) {
-        Logger.i(TAG,"MyAppDelegate onCreate");
+
+        Logger.i(TAG,"AppModuleInit::onCreate");
+
     }
 
     @Override
     public void onTerminate() {
-        Logger.i(TAG,"MyAppDelegate onTerminate");
+
+        Logger.i(TAG,"AppModuleInit::onTerminate");
+
     }
 }

@@ -12,5 +12,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <meta-data android:name="Lifecycle-ThirdPlatform" android:value="com.xinye.module_thirdplatform.MyAppDelegate"/>
     </application>
 </manifest>

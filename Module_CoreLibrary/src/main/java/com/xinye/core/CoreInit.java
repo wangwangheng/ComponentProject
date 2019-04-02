@@ -1,24 +1,24 @@
-package com.xinye.component;
+package com.xinye.core;
 
 import android.content.Context;
-import com.xinye.core.IAppLifecycle;
+import com.xinye.core.log.Logger;
 import com.xinye.lib_annotation.AppLifecycle;
 
-
 @AppLifecycle
-public class TestProcessor implements IAppLifecycle {
+public class CoreInit implements IAppLifecycle {
+
     @Override
     public int getPriority() {
-        return 0;
+        return NORM_PRIORITY;
     }
 
     @Override
     public void onCreate(Context context) {
-
+        Logger.i(TAG,"CoreInit::onCreate");
     }
 
     @Override
     public void onTerminate() {
-
+        Logger.i(TAG,"CoreInit::onTerminate");
     }
 }

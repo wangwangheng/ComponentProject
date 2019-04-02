@@ -16,5 +16,6 @@
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
         </activity>
+        <meta-data android:name="Lifecycle-App" android:value="com.xinye.component.AppModuleInit"/>
     </application>
 </manifest>

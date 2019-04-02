@@ -1,14 +1,12 @@
-package com.xinye.module_thirdplatform;
+package com.xinye.core;
 
 import android.content.Context;
-import com.xinye.core.IAppLifecycle;
 import com.xinye.core.log.Logger;
 import com.xinye.lib_annotation.AppLifecycle;
 
-
 @AppLifecycle
-public class MyAppDelegate implements IAppLifecycle {
-    private static final String TAG = "MyAppDelegate";
+public class CoreInit2 implements IAppLifecycle {
+
     @Override
     public int getPriority() {
         return NORM_PRIORITY;
@@ -16,11 +14,11 @@ public class MyAppDelegate implements IAppLifecycle {
 
     @Override
     public void onCreate(Context context) {
-        Logger.i(TAG,"MyAppDelegate onCreate");
+        Logger.i(TAG,"****CoreInit222::onCreate");
     }
 
     @Override
     public void onTerminate() {
-        Logger.i(TAG,"MyAppDelegate onTerminate");
+        Logger.i(TAG,"****CoreInit22222::onTerminate");
     }
 }

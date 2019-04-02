@@ -1,6 +1,8 @@
 package com.xinye.core
 
+import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.support.multidex.MultiDexApplication
 
 /**
@@ -16,7 +18,32 @@ abstract class BaseApplication: MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        AppLifecycleManager.init(this)
+        AppLifecycleManager.getInstance().init(this)
+        AppLifecycleManager.getInstance().onCreate(applicationContext)
+//
+//        registerActivityLifecycleCallbacks(object: ActivityLifecycleCallbacks {
+//            override fun onActivityPaused(activity: Activity?) {
+//            }
+//
+//            override fun onActivityResumed(activity: Activity?) {
+//            }
+//
+//            override fun onActivityStarted(activity: Activity?) {
+//            }
+//
+//            override fun onActivityDestroyed(activity: Activity?) {
+//            }
+//
+//            override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
+//            }
+//
+//            override fun onActivityStopped(activity: Activity?) {
+//            }
+//
+//            override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
+//            }
+//
+//        })
     }
 
     override fun onLowMemory() {
@@ -24,7 +51,7 @@ abstract class BaseApplication: MultiDexApplication() {
     }
 
     override fun onTerminate() {
-        AppLifecycleManager.terminate()
+        AppLifecycleManager.getInstance().onTerminate()
         super.onTerminate()
     }
 
