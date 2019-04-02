@@ -99,10 +99,15 @@ class AppLifecycleManagerCodeInjector {
             println "-------onMethodEnter------"
             proxyClassList.forEach({ proxyClassName ->
                 println "开始注入代码：${proxyClassName}"
-                def fullName = ScanUtils.PROXY_CLASS_PACKAGE_NAME.replace("/", ".") + "." + proxyClassName.substring(0, proxyClassName.length() - 6)
+                def fullName = ScanUtils.PROXY_CLASS_PACKAGE_NAME.replace("/", ".")
+                        + "." + proxyClassName.substring(0, proxyClassName.length() - 6)
                 println "full classname = ${fullName}"
                 mv.visitLdcInsn(fullName)
-                mv.visitMethodInsn(INVOKESTATIC, "com/xinye/core/AppLifecycleManager", "registerAppLifecycle", "(Ljava/lang/String;)V", false);
+                mv.visitMethodInsn(INVOKESTATIC,
+                        "com/xinye/core/AppLifecycleManager",
+                        "registerAppLifecycle",
+                        "(Ljava/lang/String;)V",
+                        false);
             })
         }
 
