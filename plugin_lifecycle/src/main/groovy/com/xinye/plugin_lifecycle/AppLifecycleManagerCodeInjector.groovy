@@ -99,8 +99,10 @@ class AppLifecycleManagerCodeInjector {
             println "-------onMethodEnter------"
             proxyClassList.forEach({ proxyClassName ->
                 println "开始注入代码：${proxyClassName}"
-                def fullName = ScanUtils.PROXY_CLASS_PACKAGE_NAME.replace("/", ".")
-                        + "." + proxyClassName.substring(0, proxyClassName.length() - 6)
+                String packageName = ScanUtils.PROXY_CLASS_PACKAGE_NAME.replace("/", ".")
+                String name = proxyClassName.substring(0, proxyClassName.length() - 6)
+                println("包名：$packageName , 类名::$name")
+                def fullName = packageName + "." + name
                 println "full classname = ${fullName}"
                 mv.visitLdcInsn(fullName)
                 mv.visitMethodInsn(INVOKESTATIC,

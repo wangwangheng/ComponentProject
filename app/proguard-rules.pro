@@ -20,7 +20,26 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class IAppLifecycle
--keep class * implements com.xinye.core.IAppLifecycle {
-    **;
-}
+-keep class com.xinye.core.IAppLifecycle
+-keep class * implements com.xinye.core.IAppLifecycle {*;}
+-keep class com.xinye.core.AppLifecycleManager {*;}
+-keepclassmembers class com.xinye.core.AppLifecycleManager {*;}
+
+-keep class javax.annotation.* {*;}
+-keep class * extends android.graphics.drawable.Drawable {*;}
+
+# okhttp3,okio
+-dontwarn okio.**
+-dontwarn okhttp3.**
+
+-dontwarn javax.annotation.Nullable
+-dontwarn javax.annotation.ParametersAreNonnullByDefault
+-dontwarn javax.annotation.concurrent.GuardedBy
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
+# 支持库
+-keep class android.support.v4.** {*;}
+-keep class android.support.*.** {*;}
+-keep class android.arch.** {*;}
+-keep class android.arch.*.** {*;}
+
