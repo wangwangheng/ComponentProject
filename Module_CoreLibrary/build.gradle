@@ -52,6 +52,10 @@ dependencies {
         exclude module: 'support-v4'
     }
 
+    api "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    api "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
+    api "com.github.tbruyelle:rxpermissions:$RXPERMISSION_VERSION"
+
 }
 
 aspectjx {

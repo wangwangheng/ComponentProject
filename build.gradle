@@ -14,6 +14,9 @@ buildscript {
         //自定义插件maven地址，替换成你自己的maven地址
         maven { url 'file:///Users/wangheng/.m2/repository/' }
 
+        // rx-permission
+        maven { url 'https://jitpack.io' }
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$GRADLE_VERSION"
@@ -24,6 +27,8 @@ buildscript {
 
         //通过maven加载自定义插件
         classpath 'com.xinye.plugin_lifecycle:lifecycle:1.0.0'
+
+
     }
 }
 
@@ -34,7 +39,9 @@ allprojects {
 
         maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
-        
+
+        // rx-permission
+        maven { url 'https://jitpack.io' }
     }
 }
 
