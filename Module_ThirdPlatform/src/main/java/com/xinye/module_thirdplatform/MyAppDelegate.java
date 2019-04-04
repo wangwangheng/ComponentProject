@@ -8,7 +8,6 @@ import com.xinye.lib_annotation.AppLifecycle;
 
 @AppLifecycle
 public class MyAppDelegate implements IAppLifecycle {
-    private static final String TAG = "MyAppDelegate";
     @Override
     public int getPriority() {
         return NORM_PRIORITY;

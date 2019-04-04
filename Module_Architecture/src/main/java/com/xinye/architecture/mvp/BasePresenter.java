@@ -45,14 +45,16 @@ public abstract class BasePresenter<U extends IUI> implements IPresenter {
     }
 
     protected void removeCallFromCache(Call call){
-        if(call != null && mCallList != null){
-            mCallList.remove(call);
+        ArrayList<WeakReference<Call>> list = mCallList;
+        if(call != null && list != null){
+            list.remove(call);
         }
     }
 
     private void clearAndCancelCallList() {
-        if (mCallList != null) {
-            Iterator<WeakReference<Call>> iterator = mCallList.iterator();
+        ArrayList<WeakReference<Call>> list = mCallList;
+        if (list != null) {
+            Iterator<WeakReference<Call>> iterator = list.iterator();
             if (iterator.hasNext()) {
                 WeakReference<Call> wf = iterator.next();
                 if (wf != null) {
@@ -62,7 +64,7 @@ public abstract class BasePresenter<U extends IUI> implements IPresenter {
                     }
                 }
             }
-            mCallList.clear();
+            list.clear();
         }
     }
 

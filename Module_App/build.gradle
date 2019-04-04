@@ -27,6 +27,12 @@ android {
         versionCode APP_VERSION_CODE.toInteger()
         versionName APP_VERSION_NAME
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
 
     signingConfigs {
@@ -76,6 +82,6 @@ dependencies {
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
 
-    implementation project(':lib_annotation')
     annotationProcessor project(':lib_annotation_processor')
+    annotationProcessor "com.alibaba:arouter-compiler:$AROUNTER_COMPILER_VERSION"
 }

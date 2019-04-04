@@ -2,6 +2,10 @@ package com.xinye.architecture.mvp;
 
 import android.os.Bundle;
 import com.xinye.architecture.base.BaseActivity;
+import com.xinye.core.log.Logger;
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 
 /**
@@ -13,6 +17,10 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
 
     protected P mPresenter;
 
+    public BaseMVPActivity(){
+        this.mPresenter = createPresenter();
+    }
+
     @Override
     protected final void onCreate(Bundle savedInstanceState) {
 
@@ -20,10 +28,9 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
 
         super.onCreate(savedInstanceState);
 
-        this.mPresenter = createPresenter();
-        getPresenter().init(BaseMVPActivity.this, getUI());
+        mPresenter.init(BaseMVPActivity.this, this);
         onCreateExecute(savedInstanceState);
-        getPresenter().onUICreate(savedInstanceState);
+        mPresenter.onUICreate(savedInstanceState);
     }
 
     protected void onCreateBeforeCallSuper(Bundle savedInstanceState) {
@@ -42,66 +49,65 @@ public abstract class BaseMVPActivity<P extends IPresenter> extends BaseActivity
      *
      * @return presenter
      */
-    protected abstract P createPresenter();
-
-    /**
-     * getUI:得到UI层组件，一般都是Activity或者Fragment本身. <br/>
-     *
-     * @return presenter
-     */
-    protected abstract IUI getUI();
-
-    /**
-     * getPresenter:子类应该通过这个方法拿到Presenter的实例，而不是通过变量拿到. <br/>
-     *
-     * @return Presenter
-     */
-    protected final P getPresenter() {
-        return mPresenter;
+    protected P createPresenter(){
+        ParameterizedType type = (ParameterizedType)(getClass().getGenericSuperclass());
+        if(type == null){
+            return null;
+        }
+        Type[] typeArray = type.getActualTypeArguments();
+        if(typeArray.length == 0){
+            return null;
+        }
+        Class<P> clazz = (Class<P>) typeArray[0];
+        try {
+            return clazz.newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-
 
     @Override
     protected void onStart() {
         super.onStart();
-        getPresenter().onUIStart();
+        mPresenter.onUIStart();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getPresenter().onUIResume();
+        mPresenter.onUIResume();
     }
 
     @Override
     protected void onPause() {
+        mPresenter.onUIPause();
         super.onPause();
-        getPresenter().onUIPause();
     }
 
     @Override
     protected void onStop() {
+        mPresenter.onUIStop();
         super.onStop();
-        getPresenter().onUIStop();
     }
 
     @Override
     protected void onDestroy() {
+        mPresenter.onUIDestroy();
         super.onDestroy();
-        getPresenter().onUIDestroy();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        if (getPresenter() != null) {
-            getPresenter().onSaveInstanceState(outState);
-        }
+        mPresenter.onSaveInstanceState(outState);
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        getPresenter().onRestoreInstanceState(savedInstanceState);
+        mPresenter.onRestoreInstanceState(savedInstanceState);
         super.onRestoreInstanceState(savedInstanceState);
     }
 }

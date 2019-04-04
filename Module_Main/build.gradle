@@ -5,9 +5,12 @@ if(isLibrary){
     apply plugin: 'com.android.application'
 }
 
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'android-aspectjx'
+
+apply plugin: 'xinye-plugin_lifecycle'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -43,6 +46,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':Module_CoreLibrary')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
+    implementation project(':Module_Architecture')
+
+    kapt project(':lib_annotation_processor')
 }

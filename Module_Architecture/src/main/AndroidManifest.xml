@@ -1,12 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.xinye.architecture">
-    <application android:theme="@style/AppTheme"
-                 android:name="debug.ArchitectureApplication">
-        <activity android:name="debug.TestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+    <application android:theme="@style/AppTheme">
+        <!-- use as library -->
     </application>
 </manifest>

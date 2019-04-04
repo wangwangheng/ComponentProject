@@ -28,10 +28,13 @@ dependencies {
     api project(':lib_annotation')
     annotationProcessor project(':lib_annotation_processor')
 
+    api project(':lib_annotation')
+
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
     api "com.android.support:multidex:$MULTIDEX_VERSION"
 
     api "com.android.support:appcompat-v7:$SUPPORT_SDK_VERSION"
+    api "com.android.support:support-media-compat:$SUPPORT_SDK_VERSION"
     api "com.android.support.constraint:constraint-layout:$CONSTRAINT_LYOUT_VERSION"
     api "com.android.support:appcompat-v7:$SUPPORT_SDK_VERSION"
     api "com.android.support:design:$SUPPORT_SDK_VERSION"
@@ -41,8 +44,13 @@ dependencies {
 
     api "org.aspectj:aspectjrt:$ASPECTJX_VERSION"
 
-    api 'com.squareup.retrofit2:retrofit:2.3.0'
-    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:converter-gson:$RETROFIT_CONVERTER_GSON_VERSION"
+
+    api("com.alibaba:arouter-api:$AROUNTER_VERSION") {
+        exclude module: 'support-media-compat'
+        exclude module: 'support-v4'
+    }
 
 }
 

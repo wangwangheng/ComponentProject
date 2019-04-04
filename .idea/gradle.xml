@@ -8,11 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Module_App" />
             <option value="$PROJECT_DIR$/Module_Architecture" />
             <option value="$PROJECT_DIR$/Module_CoreLibrary" />
             <option value="$PROJECT_DIR$/Module_Main" />
             <option value="$PROJECT_DIR$/Module_ThirdPlatform" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_annotation" />
             <option value="$PROJECT_DIR$/lib_annotation_processor" />
             <option value="$PROJECT_DIR$/plugin_lifecycle" />

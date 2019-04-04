@@ -5,11 +5,15 @@ buildscript {
 
     repositories {
 
-//        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
-//        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
         jcenter()
-        
+
+        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+
+        //自定义插件maven地址，替换成你自己的maven地址
+        maven { url 'file:///Users/wangheng/.m2/repository/' }
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$GRADLE_VERSION"
@@ -17,16 +21,19 @@ buildscript {
         classpath "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:$ASPECTJX_PLUGIN_VERSION"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        //通过maven加载自定义插件
+        classpath 'com.xinye.plugin_lifecycle:lifecycle:1.0.0'
     }
 }
 
 allprojects {
     repositories {
-
-//        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
-//        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         google()
         jcenter()
+
+        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
         
     }
 }

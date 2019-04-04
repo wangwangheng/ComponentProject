@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import com.xinye.architecture.base.BaseActivity;
 import com.xinye.architecture.base.BaseFragment;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 
 /**
  * MVP Fragment的基类.
@@ -25,6 +28,10 @@ public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment
 
     protected Bundle mExtras;
 
+    public BaseMVPFragment(){
+        mPresenter = createPresenter();
+    }
+
     @Override
     public final View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (savedInstanceState != null) {
@@ -36,10 +43,9 @@ public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment
 
         onBeforeCreateViewExecuteEveryTimes(savedInstanceState);
         if (mRootView == null) {
-            mPresenter = createPresenter();
-            getPresenter().init((BaseActivity) getActivity(), getUI());
+            mPresenter.init((BaseActivity) getActivity(), this);
             mRootView = onCreateViewExecute(inflater, container, savedInstanceState);
-            getPresenter().onUICreate(savedInstanceState);
+            mPresenter.onUICreate(savedInstanceState);
         }
 
         onAfterCreateViewExecuteEveryTimes(savedInstanceState);
@@ -65,59 +71,61 @@ public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment
     protected abstract View onCreateViewExecute(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
     /**
-     * getUI:得到UI.一般都是Fragment或者Activity本身 <br/>
-     *
-     * @return ui
-     */
-    protected abstract IUI getUI();
-
-    /**
      * createPresenter:创建一个Presenter，子类来实现，可以通过new的方式直接new出来一个. <br/>
      *
      * @return presenter
      */
-    protected abstract P createPresenter();
-
-    /**
-     * getPresenter:子类应该通过这个方法拿到Presenter的实例，而不是通过变量拿到. <br/>
-     *
-     * @return presenter
-     */
-    protected final P getPresenter() {
-        return mPresenter;
+    protected P createPresenter(){
+        ParameterizedType type = (ParameterizedType)(getClass().getGenericSuperclass());
+        if(type == null){
+            return null;
+        }
+        Type[] typeArray = type.getActualTypeArguments();
+        if(typeArray.length == 0){
+            return null;
+        }
+        Class<P> clazz = (Class<P>) typeArray[0];
+        try {
+            return clazz.newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (java.lang.InstantiationException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        getPresenter().onUIStart();
+        mPresenter.onUIStart();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        getPresenter().onUIStop();
+        mPresenter.onUIStop();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        getPresenter().onUIResume();
+        mPresenter.onUIResume();
     }
 
     @Override
     public void onPause() {
+        mPresenter.onUIPause();
         super.onPause();
-        getPresenter().onUIPause();
     }
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         if (mRootView != null && mRootView.getParent() != null) {
             ((ViewGroup) mRootView.getParent()).removeView(mRootView);
         }
-        getPresenter().onUIDestroy();
+        mPresenter.onUIDestroy();
+        super.onDestroyView();
     }
 
     @Override
@@ -125,9 +133,7 @@ public abstract class BaseMVPFragment<P extends IPresenter> extends BaseFragment
         if (mData != null) {
             outState.putBundle(KEY_DATA, mData);
         }
-        if (getPresenter() != null) {
-            getPresenter().onSaveInstanceState(outState);
-        }
+        mPresenter.onSaveInstanceState(outState);
         super.onSaveInstanceState(outState);
     }
 
