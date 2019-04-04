@@ -19,4 +19,9 @@
             app:titleTextColor="@color/color_white"
             app:title="HelloWorld"/>
     </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

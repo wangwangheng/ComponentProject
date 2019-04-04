@@ -5,8 +5,10 @@ if(isLibrary){
     apply plugin: 'com.android.application'
 }
 
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'android-aspectjx'
 apply plugin: 'xinye-plugin_lifecycle'
 
 android {
@@ -30,6 +32,12 @@ android {
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
 
     buildTypes {
@@ -43,6 +51,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':Module_Architecture')
-    annotationProcessor project(':lib_annotation_processor')
+
+    kapt "com.alibaba:arouter-compiler:$AROUNTER_COMPILER_VERSION"
+    kapt "com.github.bumptech.glide:compiler:$GLIDE_ANNOTATION_PROCESSOR_VERSION"
+    kapt project(':lib_annotation_processor')
 
 }

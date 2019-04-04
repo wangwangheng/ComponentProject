@@ -1,22 +1,11 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'xinye-plugin_lifecycle'
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        //自定义插件maven地址，替换成你自己的maven地址
-        maven { url 'file:///Users/wangheng/.m2/repository/' }
-    }
-    dependencies {
-        //通过maven加载自定义插件
-        classpath 'com.xinye.plugin_lifecycle:lifecycle:1.0.0'
-    }
-}
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -30,7 +19,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                arguments += [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
     }
@@ -80,8 +69,8 @@ dependencies {
     }else{
         implementation project(':Module_CoreLibrary')
     }
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
 
-    annotationProcessor project(':lib_annotation_processor')
-    annotationProcessor "com.alibaba:arouter-compiler:$AROUNTER_COMPILER_VERSION"
+    kapt "com.alibaba:arouter-compiler:$AROUNTER_COMPILER_VERSION"
+    kapt "com.github.bumptech.glide:compiler:$GLIDE_ANNOTATION_PROCESSOR_VERSION"
+    kapt project(':lib_annotation_processor')
 }

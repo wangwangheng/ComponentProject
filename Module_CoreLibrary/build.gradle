@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'android-aspectjx'    // 沪江aspectjX
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -55,6 +56,10 @@ dependencies {
     api "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
     api "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
     api "com.github.tbruyelle:rxpermissions:$RXPERMISSION_VERSION"
+
+    api "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+    kapt "com.github.bumptech.glide:compiler:$GLIDE_ANNOTATION_PROCESSOR_VERSION"
+    kapt project(':lib_annotation_processor')
 
 }
 
