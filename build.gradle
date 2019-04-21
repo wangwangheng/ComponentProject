@@ -28,6 +28,9 @@ buildscript {
         //通过maven加载自定义插件
         classpath 'com.xinye.plugin_lifecycle:lifecycle:1.0.0'
 
+        // ARouter-register
+        classpath "com.alibaba:arouter-register:$AROUTER_REGISTER_VERSION"
+
 
     }
 }

@@ -48,7 +48,7 @@ dependencies {
     api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     api "com.squareup.retrofit2:converter-gson:$RETROFIT_CONVERTER_GSON_VERSION"
 
-    api("com.alibaba:arouter-api:$AROUNTER_VERSION") {
+    api("com.alibaba:arouter-api:$AROUTER_VERSION") {
         exclude module: 'support-media-compat'
         exclude module: 'support-v4'
     }

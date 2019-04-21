@@ -42,8 +42,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,7 +58,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':Module_Architecture')
 
-    kapt "com.alibaba:arouter-compiler:$AROUNTER_COMPILER_VERSION"
+    kapt "com.alibaba:arouter-compiler:$AROUTER_COMPILER_VERSION"
     kapt "com.github.bumptech.glide:compiler:$GLIDE_ANNOTATION_PROCESSOR_VERSION"
     kapt project(':lib_annotation_processor')
 }

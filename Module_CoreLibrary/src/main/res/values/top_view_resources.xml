@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TopView">
+        <attr name="topViewTitle" format="string"/>
+        <attr name="topViewLeftImage" format="reference"/>
+        <attr name="topViewRightImage" format="reference"/>
+        <attr name="topViewRightText" format="string"/>
+    </declare-styleable>
+</resources>

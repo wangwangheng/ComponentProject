@@ -25,6 +25,10 @@ object App{
         return mContext
     }
 
+    fun getApplication(): Application {
+        return  mContext;
+    }
+
     fun isDebug(): Boolean {
         return mDebug
     }
