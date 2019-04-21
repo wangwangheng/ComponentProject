@@ -1,15 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <com.xinye.core.widget.TopView
-        android:id="@+id/top_view_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:topViewLeftImage="@drawable/ic_launcher_background"
-        app:topViewRightImage="@drawable/ic_launcher_background"
-        app:topViewTitle="我就是首页"
-        app:topViewRightText="呵呵呵呵右边"/>
-</LinearLayout>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/app_view_activity_main"/>
+
+    <ScrollView
+        android:id="@+id/ll_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|left"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/color_white"
+            android:gravity="center_horizontal">
+            <FrameLayout
+                android:layout_width="60dp"
+                 android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                 android:background="@drawable/circle_ffececec">
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"/>
+                <ImageView
+                    android:id="@+id/iv_avatar_corner_marker"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="right|bottom|end"
+                    tools:src="@mipmap/ic_launcher"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="22sp"
+                android:textColor="#FF1B1B1B"
+                android:singleLine="true"
+                android:text="186****4509"/>
+
+            <TextView
+                android:id="@+id/tv_member_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="10sp"
+                android:textColor="@color/color_white"
+                android:singleLine="true"
+                android:text="普通会员"
+                android:background="@drawable/round_rect_member_tag"/>
+
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_my_wallet"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_my_wallet"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_my_order"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_my_order"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_invoice_manager"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_invoice_manager"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_additional_cost"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_additional_cost"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_violation_regulations"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_violation_regulations"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_settings"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_settings"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+            <com.xinye.component.ItemClickableView
+                android:id="@+id/icv_feedback"
+                style="@style/HomeDrawerItemStyle"
+                app:icvText="@string/main_home_feedback"
+                app:icvLeftImage="@mipmap/ic_launcher"
+                app:icvRightImage="@mipmap/ic_launcher"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</android.support.v4.widget.DrawerLayout>

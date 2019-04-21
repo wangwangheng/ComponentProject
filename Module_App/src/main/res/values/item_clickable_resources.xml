@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ItemClickableView">
+        <attr name="icvLeftImage" format="reference"/>
+        <attr name="icvRightImage" format="reference"/>
+        <attr name="icvText" format="string"/>
+        <attr name="icvTextMargin" format="dimension"/>
+        <attr name="icvLeftImageSize" format="dimension"/>
+        <attr name="icvRightImageSize" format="dimension"/>
+        <attr name="icvTextColor" format="color"/>
+        <attr name="icvTextSize" format="dimension"/>
+    </declare-styleable>
+</resources>

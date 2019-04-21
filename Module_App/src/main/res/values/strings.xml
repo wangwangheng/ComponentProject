@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ComponentProject</string>
+    <string name="main_home_my_wallet">我的钱包</string>
+    <string name="main_home_my_order">我的行程</string>
+    <string name="main_home_invoice_manager">开票管理</string>
+    <string name="main_home_additional_cost">附加费订单</string>
+    <string name="main_home_violation_regulations">违章记录</string>
+    <string name="main_home_settings">设置</string>
+    <string name="main_home_feedback">意见反馈</string>
 </resources>

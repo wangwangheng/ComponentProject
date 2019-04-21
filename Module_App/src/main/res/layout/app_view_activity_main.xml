@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <com.xinye.core.widget.TopView
+        android:id="@+id/top_view_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:topViewLeftImage="@drawable/ic_launcher_background"
+        app:topViewRightImage="@drawable/ic_launcher_background"
+        app:topViewTitle="我就是首页"
+        app:topViewRightText="呵呵呵呵右边"/>
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.xinye.component.InterceptorHorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+                <LinearLayout
+                    android:id="@+id/ll_top_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </com.xinye.component.InterceptorHorizontalScrollView>
+            <FrameLayout
+                android:id="@+id/fl_top_banner_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                style="@style/AppCardViewStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="#FF969696"
+                        android:text="取车门店"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
